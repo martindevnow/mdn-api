@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Faker\Generator as Faker;
 
 /*
@@ -13,11 +14,14 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(Martin\ACL\User::class, function (Faker $faker) {
+$factory->define(\Martin\Projects\Project::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
-        'remember_token' => str_random(10),
+        'client_id'     => factory(\Martin\Clients\Client::class)->create()->id,
+        'name'          => $faker->name,
+        'code'          => $faker->words(1, true),
+        'description'   => $faker->sentences(1, true),
+        'status'        => 'active',
+
+        'started_at' => Carbon::now()->subDays($faker->numberBetween(100,120)),
     ];
 });
