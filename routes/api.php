@@ -21,4 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResource('/clients', 'ClientsController');
 Route::apiResource('/domains', 'DomainsController');
+Route::apiResource('/payments', 'PaymentsController');
 Route::apiResource('/projects', 'ProjectsController');
