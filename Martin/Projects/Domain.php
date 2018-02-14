@@ -18,17 +18,9 @@ class Domain extends Model
     ];
 
     protected $casts = [
-        'originally_registered_at' => 'date:Y-m-d',
-        'expires_at' => 'date:Y-m-d',
+        'originally_registered_at'  => 'date:Y-m-d',
+        'expires_at'                => 'date:Y-m-d',
     ];
-
-    public function getOriginallyRegisteredAtAttribute($val) {
-        return $this->removeTime($val);
-    }
-
-    public function getExpiresAtAttribute($val) {
-        return $this->removeTime($val);
-    }
 
     public function project() {
         return $this->belongsTo(Project::class);

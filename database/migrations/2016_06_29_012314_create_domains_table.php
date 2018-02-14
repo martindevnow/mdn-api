@@ -16,9 +16,9 @@ class CreateDomainsTable extends Migration
             $table->increments('id');
 
             $table->string('name');
-            $table->string('registrar');
-            $table->dateTime('originally_registered_at');
-            $table->dateTime('expires_at');
+            $table->string('registrar')->nullable();
+            $table->dateTime('originally_registered_at')->nullable();
+            $table->dateTime('expires_at')->nullable();
             
             $table->integer('project_id')->nullable();
 
