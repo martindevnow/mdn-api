@@ -24,18 +24,16 @@ class ChangeRequest extends Model
         'requested_at' => 'date:Y-m-d',
     ];
 
-    public function getRequestedAtAttribute($val) {
-        return $this->removeTime($val);
-    }
-
-    public function getFulfilledAtAttribute($val) {
-        return $this->removeTime($val);
-    }
-
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function project() {
         return $this->belongsTo(Project::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function user() {
         return $this->belongsTo(User::class);
     }
