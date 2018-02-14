@@ -11,9 +11,6 @@ class Contract extends Model
 {
     use SoftDeletes;
 
-    /**
-     * @var array
-     */
     protected $fillable = [
         'project_id',
         'programming_hourly_rate',
@@ -25,14 +22,11 @@ class Contract extends Model
         'valid_until_date',
     ];
 
-    /**
-     * @var array
-     */
     protected $casts = [
-        'activated_at' => 'date:Y-m-d',
-        'deactivated_at' => 'date:Y-m-d',
-        'valid_from_date' => 'date:Y-m-d',
-        'valid_until_date' => 'date:Y-m-d',
+        'activated_at'      => 'date:Y-m-d',
+        'deactivated_at'    => 'date:Y-m-d',
+        'valid_from_date'   => 'date:Y-m-d',
+        'valid_until_date'  => 'date:Y-m-d',
     ];
 
 

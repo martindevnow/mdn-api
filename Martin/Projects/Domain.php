@@ -22,6 +22,9 @@ class Domain extends Model
         'expires_at'                => 'date:Y-m-d',
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function project() {
         return $this->belongsTo(Project::class);
     }

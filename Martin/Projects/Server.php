@@ -27,6 +27,9 @@ class Server extends Model
         'expires_at' => 'date:Y-m-d',
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function projects() {
         return $this->hasMany(Project::class);
     }

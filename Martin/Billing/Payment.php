@@ -23,7 +23,6 @@ class Payment extends Model
         'received_at' => 'date:Y-m-d',
     ];
 
-
     /**
      * Determine if the payment has been assigned to enough invoices or not
      *

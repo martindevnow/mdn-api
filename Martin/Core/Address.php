@@ -39,9 +39,8 @@ class Address extends Model
     }
 
     /**
-     * Return the Type of Address
-     *
      * @return string
+     * @throws \ReflectionException
      */
     public function getAddressableType() {
         if ($this->type)
@@ -49,15 +48,6 @@ class Address extends Model
 
         return $this->type = strtolower((new ReflectionClass($this->addressable))
             ->getShortName());
-    }
-
-    /**
-     * Get the URL for the associated Entity
-     *
-     * @return string
-     */
-    public function getUrlToAddressable() {
-        return "/admin/{$this->getAddressableType()}/{$this->addressable_id}";
     }
 
     /**
@@ -84,14 +74,5 @@ class Address extends Model
      */
     public function addressable() {
         return $this->morphTo();
-    }
-
-    /**
-     * An address will have many orders attached to the order
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function orders() {
-        return $this->hasMany(Order::class, 'delivery_address_id');
     }
 }

@@ -15,6 +15,9 @@ class Contact extends Model
         'client_id',
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function client() {
         return $this->belongsTo(Client::class);
     }

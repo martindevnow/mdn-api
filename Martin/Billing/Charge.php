@@ -10,9 +10,6 @@ class Charge extends Model
 {
     use SoftDeletes;
 
-    /**
-     * @var array
-     */
     protected $fillable = [
         'project_id',
         'invoice_id',
@@ -26,19 +23,10 @@ class Charge extends Model
         'billed_at',
     ];
 
-
-    /**
-     * @var array
-     */
     protected $casts = [
         'billable_as_of' => 'date:Y-m-d',
         'billed_at' => 'date:Y-m-d',
     ];
-
-
-    /**
-     * Relationships
-     */
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

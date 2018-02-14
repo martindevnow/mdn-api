@@ -11,11 +11,6 @@ class Attachment extends Model
 {
     use SoftDeletes;
 
-    /**
-     * Mass-assignable Fields
-     *
-     * @var array
-     */
     protected $fillable = [
         'uploader_id',
         'original_filename',
@@ -25,32 +20,7 @@ class Attachment extends Model
         'attachmentable_type',
     ];
 
-//    /**
-//     * Returns a download response to the file location
-//     *
-//     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
-//     */
-//    public function download() {
-//        return response()->download($this->fullpath(), $this->original());
-//    }
-//
-//    /**
-//     * @return string
-//     */
-//    public function fullpath() {
-//        return base_path() . '/' . $this->filename . '.' . $this->extension;
-//    }
-//
-//    /**
-//     * @return string
-//     */
-//    public function original() {
-//        return $this->original_filename . '.' . $this->extension;
-//    }
-
     /**
-     * This can be an attachment to anything
-     *
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
     public function attachmentable() {
@@ -58,8 +28,6 @@ class Attachment extends Model
     }
 
     /**
-     * Attachments can only be uploaded by admins
-     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function uploader() {

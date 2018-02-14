@@ -14,9 +14,6 @@ class Project extends Model
 {
     use SoftDeletes;
 
-    /**
-     * @var array
-     */
     protected $fillable = [
         'name',
         'code',
@@ -32,13 +29,9 @@ class Project extends Model
         'development_url',
     ];
 
-    /**
-     * @var array
-     */
     protected $casts = [
         'started_at' => 'date:Y-m-d',
     ];
-
 
 
     /**

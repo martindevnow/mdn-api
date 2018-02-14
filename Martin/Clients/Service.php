@@ -11,11 +11,6 @@ class Service extends Model
 {
     use SoftDeletes;
 
-    /**
-     * Mass-assignable fields
-     *
-     * @var array
-     */
     protected $fillable = [
         'project_id',
 
@@ -28,16 +23,11 @@ class Service extends Model
         'valid_until_date',
     ];
 
-    /**
-     * Fields cast as Carbon/Carbon
-     *
-     * @var array
-     */
     protected $casts = [
-        'activated_at' => 'date:Y-m-d',
-        'deactivated_at' => 'date:Y-m-d',
-        'valid_from_date' => 'date:Y-m-d',
-        'valid_until_date' => 'date:Y-m-d',
+        'activated_at'      => 'date:Y-m-d',
+        'deactivated_at'    => 'date:Y-m-d',
+        'valid_from_date'   => 'date:Y-m-d',
+        'valid_until_date'  => 'date:Y-m-d',
     ];
 
 

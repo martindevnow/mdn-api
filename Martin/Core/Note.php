@@ -20,8 +20,6 @@ class Note extends Model
     ];
 
     /**
-     * A Note can be attached to Anything
-     *
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
     public function noteable() {
@@ -29,8 +27,6 @@ class Note extends Model
     }
 
     /**
-     * A Note is created by a User
-     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function author() {

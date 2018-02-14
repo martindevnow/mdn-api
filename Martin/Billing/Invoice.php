@@ -13,11 +13,6 @@ class Invoice extends Model
 {
     use SoftDeletes;
 
-    /**
-     * Mass-assignable fields
-     *
-     * @var array
-     */
     protected $fillable = [
         'amount_usd',
         'usd_to_cad_rate',
@@ -33,15 +28,10 @@ class Invoice extends Model
         'invoice_no',
     ];
 
-    /**
-     * Fields to cast as Carbon/Carbon
-     *
-     * @var array
-     */
     protected $dates = [
-        'generated_at' => 'date:Y-m-d',
-        'sent_at' => 'date:Y-m-d',
-        'paid_at => \'date:Y-m-d\''
+        'generated_at'  => 'date:Y-m-d',
+        'sent_at'       => 'date:Y-m-d',
+        'paid_at'       => 'date:Y-m-d'
     ];
 
     /**

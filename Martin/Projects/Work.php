@@ -11,9 +11,6 @@ class Work extends Model
 {
     use SoftDeletes;
 
-    /**
-     * @var array
-     */
     protected $fillable = [
         'project_id',
         'duration',
@@ -22,9 +19,6 @@ class Work extends Model
         'type',
     ];
 
-    /**
-     * @var array
-     */
     protected $casts = [
         'performed_at' => 'date:Y-m-d',
     ];
