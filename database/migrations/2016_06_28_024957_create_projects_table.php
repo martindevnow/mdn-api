@@ -22,6 +22,7 @@ class CreateProjectsTable extends Migration
             $table->text('description');
 
             $table->enum('status', [
+                'pending',
                 'active',
                 'hold',
                 'hosting',
@@ -29,9 +30,9 @@ class CreateProjectsTable extends Migration
                 'maintaining',
                 'development',
                 'production',
-            ]);
+            ])->default('pending');
 
-            $table->dateTime('started_at');
+            $table->dateTime('started_at')->nullable();
 
             $table->string('git_repo_url')->nullable();
             $table->string('production_url')->nullable();

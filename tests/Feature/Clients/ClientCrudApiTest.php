@@ -22,7 +22,7 @@ class ClientCrudApiTest extends TestCase
 
 
     /** @test */
-    public function it_lists_clients() {
+    public function client__index__happyPath() {
         $this->createDemoClient(['name' => 'TestCompany']);
 
         $response = $this->callGet('/api/clients');
@@ -44,7 +44,7 @@ class ClientCrudApiTest extends TestCase
     }
 
     /** @test */
-    public function it_shows_a_client() {
+    public function client__show__happyPath() {
         $client = $this->createDemoClient(['name' => 'DemoClient']);
 
         $response = $this->callGet('/api/clients/' . $client->id);
@@ -65,16 +65,20 @@ class ClientCrudApiTest extends TestCase
     }
 
     /** @test */
-    public function it_shows_404_when_client_id_not_found() {
+    public function client__show__404_for_invalid_id() {
         $client = $this->createDemoClient(['name' => 'DemoClient3']);
         $nonExistingId = ++ $client->id;
+        $randomString = $client->name;
 
         $response = $this->callGet('/api/clients/' . $nonExistingId);
+        $response->assertStatus(404);
+
+        $response = $this->callGet('/api/clients/' . $randomString);
         $response->assertStatus(404);
     }
 
     /** @test */
-    public function it_stores_a_client() {
+    public function client__store__happyPath() {
         $clientData = $this->makeDemoClient(['name' => 'ValidClientName'])->toArray();
 
         $response = $this->callPost('/api/clients', $clientData);
@@ -98,7 +102,7 @@ class ClientCrudApiTest extends TestCase
     }
 
     /** @test */
-    public function it_updates_a_client() {
+    public function client__update__happyPath() {
         $client = $this->createDemoClient(['name' => 'DemoClient']);
         $this->assertDatabaseHas('clients', $client->toArray());
 
@@ -121,11 +125,47 @@ class ClientCrudApiTest extends TestCase
     }
 
     /** @test */
-    public function it_deletes_a_client() {
+    public function client__update__500_on_repeat_client_code() {
+        /** @var TYPE_NAME $client1 */
+        $client1 = $this->createDemoClient(['code' => 'FavoriteClient']);
+        $client2 = $this->createDemoClient(['code' => 'DemoClient']);
+        $this->assertDatabaseHas('clients', $client1->toArray());
+        $this->assertDatabaseHas('clients', $client2->toArray());
+
+        $client1->code = $client2->code;
+
+        $response = $this->callPatch('/api/clients/' . $client1->id, $client1->toArray());
+        $response->assertStatus(422)
+            ->assertJsonStructure([
+                'message',
+                'errors' => ['code']
+            ])
+            ->assertJsonFragment([
+                'code' => [
+                    'The code has already been taken.',
+                ],
+            ]);
+    }
+
+    /** @test */
+    public function client__delete__happyPath() {
         $client = $this->createDemoClient(['name' => 'TerribleClient']);
         $this->assertDatabaseHas('clients', $client->toArray());
 
         $response = $this->callDelete('/api/clients/' . $client->id);
         $response->assertStatus(204);
+    }
+
+    /** @test */
+    public function client__delete__404_for_invalid_id() {
+        $client = $this->createDemoClient(['name' => 'DemoClient3']);
+        $nonExistingId = ++ $client->id;
+        $randomString = $client->name;
+
+        $response = $this->callDelete('/api/clients/' . $nonExistingId);
+        $response->assertStatus(404);
+
+        $response = $this->callDelete('/api/clients/' . $randomString);
+        $response->assertStatus(404);
     }
 }
