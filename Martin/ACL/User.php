@@ -12,12 +12,19 @@ use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasRoles;
     use SoftDeletes;
     use Notifiable;
+
+    // Required for Notes, Attachments, etc..
     use CoreRelations;
+
+    // Required for ACL
+    use HasRoles;
+
+    // Required for Laravel/Passport
     use HasApiTokens;
 
+    // Required for Logging changes to Users
     use LogsActivity;
     static $logFillable = true;
 

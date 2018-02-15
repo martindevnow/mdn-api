@@ -1,0 +1,9 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "My First API",
+        "version": "0.1"
+    },
+    "paths": {},
+    "definitions": {}
+}
