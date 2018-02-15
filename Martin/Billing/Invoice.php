@@ -63,7 +63,42 @@ class Invoice extends Model
     }
 
 
+    /*
+     * Mutators
+     */
+
     /**
+     * @param $value
+     * @return float|int
+     */
+    public function getAmountUsdAttribute($value) {
+        return $value / 100;
+    }
+
+    /**
+     * @param $value
+     */
+    public function setAmountUsdAttribute($value) {
+        $this->attributes['amount_usd'] = round($value * 100);
+    }
+
+    /**
+     * @param $value
+     * @return float|int
+     */
+    public function getAmountCadAttribute($value) {
+        return $value / 100;
+    }
+
+    /**
+     * @param $value
+     */
+    public function setAmountCadAttribute($value) {
+        $this->attributes['amount_cad'] = round($value * 100);
+    }
+
+
+    /*
      * Relationships
      */
 

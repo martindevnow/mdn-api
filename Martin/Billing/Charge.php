@@ -28,6 +28,44 @@ class Charge extends Model
         'billed_at' => 'date:Y-m-d',
     ];
 
+    /*
+     * Mutators
+     */
+
+    /**
+     * @param $value
+     * @return float|int
+     */
+    public function getTotalCostAttribute($value) {
+        return $value / 100;
+    }
+
+    /**
+     * @param $value
+     */
+    public function setTotalCostAttribute($value) {
+        $this->attributes['total_cost'] = round($value * 100);
+    }
+
+    /**
+     * @param $value
+     * @return float|int
+     */
+    public function getRateAttribute($value) {
+        return $value / 100;
+    }
+
+    /**
+     * @param $value
+     */
+    public function setRateAttribute($value) {
+        $this->attributes['rate'] = round($value * 100);
+    }
+
+    /*
+     * Relationships
+     */
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

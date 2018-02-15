@@ -10,6 +10,10 @@ class ServerCrudApiTest extends TestCase
 {
     use RefreshDatabase;
 
+    private $mutatedMoneyFields = [
+        'cost_monthly'
+    ];
+
     private function makeDemoServer(array $overrides = []): Server {
         return factory(Server::class)->make($overrides);
     }
@@ -25,6 +29,26 @@ class ServerCrudApiTest extends TestCase
         unset($serverDataArray['purchased_at']);
         unset($serverDataArray['expires_at']);
         return $serverDataArray;
+    }
+
+    private function demutate(array $serverData): array {
+        if (! count($this->mutatedMoneyFields))
+            return $serverData;
+
+        foreach ($this->mutatedMoneyFields as $field) {
+            $serverData[$field] = $serverData[$field] / 100;
+        }
+        return $serverData;
+    }
+
+    private function mutate(array $serverData): array {
+        if (! count($this->mutatedMoneyFields))
+            return $serverData;
+
+        foreach ($this->mutatedMoneyFields as $field) {
+            $serverData[$field] = round($serverData[$field] * 100);
+        }
+        return $serverData;
     }
 
     /** @test */
@@ -130,7 +154,7 @@ class ServerCrudApiTest extends TestCase
         $server = $this->createDemoServer(['name' => 'DemoServer']);
         $serverData = $this->getDataArrayWithoutMutations($server);
 
-        $this->assertDatabaseHas('servers', $serverData);
+        $this->assertDatabaseHas('servers', $this->mutate($serverData));
         $server->name = 'RenamedServer';
 
         $response = $this->callPatch('/api/servers/' . $server->id, $server->toArray());
@@ -159,7 +183,7 @@ class ServerCrudApiTest extends TestCase
     public function server__delete__happyPath() {
         $server = $this->createDemoServer(['name' => 'TerribleServer']);
         $serverData = $this->getDataArrayWithoutMutations($server);
-        $this->assertDatabaseHas('servers', $serverData);
+        $this->assertDatabaseHas('servers', $this->mutate($serverData));
 
         $response = $this->callDelete('/api/servers/' . $server->id);
         $response->assertStatus(204);

@@ -27,6 +27,29 @@ class Server extends Model
         'expires_at'    => 'date:Y-m-d',
     ];
 
+    /*
+     * Mutators
+     */
+
+    /**
+     * @param $value
+     * @return float|int
+     */
+    public function getCostMonthlyAttribute($value) {
+        return $value / 100;
+    }
+
+    /**
+     * @param $value
+     */
+    public function setCostMonthlyAttribute($value) {
+        $this->attributes['cost_monthly'] = round($value * 100);
+    }
+
+    /*
+     * Relationships
+     */
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

@@ -15,9 +15,9 @@ class CreateInvoicesTable extends Migration
         Schema::create('invoices', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->double('amount_usd', 8, 2)->nullable();
+            $table->integer('amount_usd')->nullable();
             $table->double('usd_to_cad_rate', 9, 7)->nullable();
-            $table->double('amount_cad', 8, 2)->nullable();
+            $table->integer('amount_cad')->nullable();
 
             $table->dateTime('generated_at')->nullable();
             $table->dateTime('sent_at')->nullable();
