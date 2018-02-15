@@ -21,6 +21,7 @@ class Project extends Model
         'status',
 
         'client_id',
+        'server_id',
 
         'started_at',
 

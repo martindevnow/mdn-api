@@ -28,6 +28,7 @@ class ProjectsController extends Controller
     {
         $validData = $request->validate([
             'client_id'     => 'required|exists:clients,id',
+            'server_id'     => 'nullable|exists:servers,id',
             'name'          => 'required',
             'code'          => 'required|unique:projects,code',
             'description'   => 'nullable',
@@ -70,6 +71,7 @@ class ProjectsController extends Controller
 
         $validData = $request->validate([
             'client_id'     => 'required|exists:clients,id',
+            'server_id'     => 'nullable|exists:servers,id',
             'name'          => 'required',
             'code'          => 'required|unique:projects,code,' . $project->id,
             'description'   => 'nullable',

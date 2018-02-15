@@ -17,11 +17,17 @@ use Faker\Generator as Faker;
 $factory->define(\Martin\Projects\Project::class, function (Faker $faker) {
     return [
         'client_id'     => factory(\Martin\Clients\Client::class)->create()->id,
+        'server_id'     => factory(\Martin\Projects\Server::class)->create()->id,
+
         'name'          => $faker->name,
         'code'          => $faker->words(1, true),
         'description'   => $faker->sentences(1, true),
         'status'        => 'active',
 
-        'started_at' => Carbon::now()->subDays($faker->numberBetween(100,120)),
+        'started_at'        => Carbon::now()->subDays($faker->numberBetween(100,120)),
+
+        'git_repo_url'      => $faker->url,
+        'production_url'    => $faker->url,
+        'development_url'   => $faker->url,
     ];
 });

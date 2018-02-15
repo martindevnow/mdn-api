@@ -23,8 +23,8 @@ class Server extends Model
     ];
 
     protected $casts = [
-        'purchased_at' => 'date:Y-m-d',
-        'expires_at' => 'date:Y-m-d',
+        'purchased_at'  => 'date:Y-m-d',
+        'expires_at'    => 'date:Y-m-d',
     ];
 
     /**

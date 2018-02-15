@@ -24,7 +24,7 @@ class CreateServersTable extends Migration
             $table->dateTime('purchased_at');
             $table->dateTime('expires_at');
 
-            $table->double('cost_monthly', 6,2);
+            $table->integer('cost_monthly');
             $table->enum('currency', [
                 'USD',
                 'CAD',
@@ -35,7 +35,7 @@ class CreateServersTable extends Migration
                 'monthly'
             ]);
 
-            $table->boolean('active');
+            $table->boolean('active')->default(0);
 
             $table->timestamps();
             $table->softDeletes();

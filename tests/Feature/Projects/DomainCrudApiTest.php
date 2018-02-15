@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Domains;
+namespace Tests\Feature\Projects;
 
 use Martin\Projects\Domain;
 use Tests\TestCase;

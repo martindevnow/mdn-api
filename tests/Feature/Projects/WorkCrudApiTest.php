@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Works;
+namespace Tests\Feature\Projects;
 
 use Martin\Projects\Work;
 use Tests\TestCase;

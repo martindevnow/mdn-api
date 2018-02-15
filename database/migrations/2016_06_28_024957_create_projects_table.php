@@ -16,6 +16,7 @@ class CreateProjectsTable extends Migration
             $table->increments('id');
 
             $table->integer('client_id');
+            $table->integer('server_id');
 
             $table->string('name');
             $table->string('code');
