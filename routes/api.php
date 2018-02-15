@@ -23,3 +23,4 @@ Route::apiResource('/clients', 'ClientsController');
 Route::apiResource('/domains', 'DomainsController');
 Route::apiResource('/payments', 'PaymentsController');
 Route::apiResource('/projects', 'ProjectsController');
+Route::apiResource('/works', 'WorksController');

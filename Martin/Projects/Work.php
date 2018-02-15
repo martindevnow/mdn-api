@@ -13,6 +13,7 @@ class Work extends Model
 
     protected $fillable = [
         'project_id',
+        'details',
         'duration',
         'performed_at',
         'billable',

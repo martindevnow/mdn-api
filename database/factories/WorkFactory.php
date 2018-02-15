@@ -17,6 +17,7 @@ use Faker\Generator as Faker;
 $factory->define(\Martin\Projects\Work::class, function (Faker $faker) {
     return [
         'project_id'    => factory(\Martin\Projects\Project::class)->create()->id,
+
         'details'       => $faker->sentences(1, true),
         'duration'      => $faker->numberBetween(30,90),
         'performed_at'  => Carbon::now()->subDays($faker->numberBetween(1,8)),
