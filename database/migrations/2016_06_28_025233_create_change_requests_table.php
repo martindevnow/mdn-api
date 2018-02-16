@@ -15,9 +15,9 @@ class CreateChangeRequestsTable extends Migration
         Schema::create('change_requests', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->string('description');
-            $table->dateTime('requested_at');
-            $table->dateTime('fulfilled_at');
+            $table->text('description');
+            $table->dateTime('requested_at')->nullable();
+            $table->dateTime('fulfilled_at')->nullable();
 
             $table->integer('project_id');
             $table->integer('user_id');
