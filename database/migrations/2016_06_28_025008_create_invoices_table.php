@@ -15,6 +15,9 @@ class CreateInvoicesTable extends Migration
         Schema::create('invoices', function (Blueprint $table) {
             $table->increments('id');
 
+            $table->integer('project_id');
+            $table->integer('invoice_no');
+
             $table->integer('amount_usd')->nullable();
             $table->double('usd_to_cad_rate', 9, 7)->nullable();
             $table->integer('amount_cad')->nullable();
@@ -23,10 +26,6 @@ class CreateInvoicesTable extends Migration
             $table->dateTime('sent_at')->nullable();
             $table->dateTime('paid_at')->nullable();
 
-            $table->integer('project_id');
-            $table->integer('client_id');
-
-            $table->integer('invoice_no');
 
             $table->timestamps();
             $table->softDeletes();

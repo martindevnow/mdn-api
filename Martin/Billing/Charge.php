@@ -62,6 +62,20 @@ class Charge extends Model
         $this->attributes['rate'] = round($value * 100);
     }
 
+    /**
+     * @param $value
+     * @return float|int
+     */
+    public function getQuantityAttribute($value) {
+        return $value / 100;
+    }
+
+    /**
+     * @param $value
+     */
+    public function setQuantityAttribute($value) {
+        $this->attributes['quantity'] = round($value * 100);
+    }
     /*
      * Relationships
      */

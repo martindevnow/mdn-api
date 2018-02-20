@@ -23,7 +23,7 @@ class CreateChargesTable extends Migration
             $table->string('chargeable_type');
 
             $table->integer('rate');
-            $table->double('quantity', 6, 2);
+            $table->integer('quantity');
             $table->integer('total_cost');
 
             $table->dateTime('billable_as_of');

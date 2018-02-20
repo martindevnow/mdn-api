@@ -18,7 +18,7 @@ class CreateServicesTable extends Migration
 
             $table->integer('project_id');
             $table->string('description');
-            $table->double('cost', 7, 2);
+            $table->integer('rate');
             $table->enum('billing_frequency', [
                 'yearly',
                 'monthly'
