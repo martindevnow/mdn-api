@@ -97,6 +97,21 @@ class Invoice extends Model
         $this->attributes['amount_cad'] = round($value * 100);
     }
 
+    /**
+     * @param $value
+     * @return float|int
+     */
+    public function getUsdToCadRateAttribute($value) {
+        return $value / 100000;
+    }
+
+    /**
+     * @param $value
+     */
+    public function setUsdToCadRateAttribute($value) {
+        $this->attributes['usd_to_cad_rate'] = round($value * 100000);
+    }
+
 
     /*
      * Relationships

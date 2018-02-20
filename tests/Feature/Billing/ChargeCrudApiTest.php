@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Charges;
+namespace Tests\Feature\Billing;
 
 use Martin\Billing\Charge;
 use Martin\Projects\Work;

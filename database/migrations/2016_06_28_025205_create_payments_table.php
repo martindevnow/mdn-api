@@ -20,9 +20,9 @@ class CreatePaymentsTable extends Migration
             $table->dateTime('received_at');
             $table->string('cheque_number');
 
-            $table->double('amount_usd', 8, 2)->nullable();
-            $table->double('usd_to_cad_rate', 9, 7)->nullable();
-            $table->double('amount_cad', 8, 2)->nullable();
+            $table->integer('amount_usd')->nullable();
+            $table->integer('usd_to_cad_rate')->nullable();
+            $table->integer('amount_cad')->nullable();
 
             $table->timestamps();
             $table->softDeletes();

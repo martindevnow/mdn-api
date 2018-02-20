@@ -15,7 +15,7 @@ use Faker\Generator as Faker;
 */
 
 $factory->define(\Martin\Billing\Invoice::class, function (Faker $faker) {
-    $start_date = Carbon::now()->subDays($faker->numberBetween(100,120));
+    $start_date = Carbon::now()->subDays($faker->numberBetween(10,12));
 
     $xrate = $faker->numberBetween(115, 130) / 100;
     $cad = $faker->numberBetween(100, 250);
@@ -29,8 +29,8 @@ $factory->define(\Martin\Billing\Invoice::class, function (Faker $faker) {
         'amount_usd'        => $usd,
         'usd_to_cad_rate'   => $xrate,
 
-        'generated_at'      => $start_date,
-        'sent_at'           => $start_date->addDays(2),
-        'paid_at'           => $start_date->addDays(17),
+        'generated_at'      => $start_date->format('Y-m-d'),
+        'sent_at'           => $start_date->addDays(2)->format('Y-m-d'),
+        'paid_at'           => $start_date->addDays(17)->format('Y-m-d'),
     ];
 });

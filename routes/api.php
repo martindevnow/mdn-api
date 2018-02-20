@@ -23,6 +23,7 @@ Route::apiResource('/changeRequests', 'ChangeRequestsController');
 Route::apiResource('/charges', 'ChargesController');
 Route::apiResource('/clients', 'ClientsController');
 Route::apiResource('/domains', 'DomainsController');
+Route::apiResource('/invoices', 'InvoicesController');
 Route::apiResource('/payments', 'PaymentsController');
 Route::apiResource('/projects', 'ProjectsController');
 Route::apiResource('/servers', 'ServersController');

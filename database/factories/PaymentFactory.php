@@ -21,7 +21,7 @@ $factory->define(\Martin\Billing\Payment::class, function (Faker $faker) {
 
     return [
         'client_id'     => factory(\Martin\Clients\Client::class)->create()->id,
-        'cheque_number' => $faker->numberBetween(10000, 99999),
+        'cheque_number' => $faker->numberBetween(100000, 999999),
         'amount_cad'    => $cad,
         'amount_usd'    => $usd,
         'usd_to_cad_rate'   => $xrate,

@@ -19,7 +19,7 @@ class CreateInvoicesTable extends Migration
             $table->integer('invoice_no');
 
             $table->integer('amount_usd')->nullable();
-            $table->double('usd_to_cad_rate', 9, 7)->nullable();
+            $table->integer('usd_to_cad_rate')->nullable();
             $table->integer('amount_cad')->nullable();
 
             $table->dateTime('generated_at')->nullable();

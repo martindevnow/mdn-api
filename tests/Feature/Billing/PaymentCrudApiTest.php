@@ -23,6 +23,9 @@ class PaymentCrudApiTest extends TestCase
     private function getDataArrayWithoutMutations(Payment $payment): array {
         $paymentDataArray = $payment->toArray();
         unset($paymentDataArray['received_at']);
+        $paymentDataArray['amount_usd'] = round($paymentDataArray['amount_usd'] * 100);
+        $paymentDataArray['usd_to_cad_rate'] = round($paymentDataArray['usd_to_cad_rate'] * 100000);
+        $paymentDataArray['amount_cad'] = round($paymentDataArray['amount_cad'] * 100);
         return $paymentDataArray;
     }
 
