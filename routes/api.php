@@ -31,4 +31,5 @@ Route::apiResource('/payments', 'PaymentsController');
 Route::apiResource('/projects', 'ProjectsController');
 Route::apiResource('/servers', 'ServersController');
 Route::apiResource('/services', 'ServicesController');
+Route::apiResource('/softwares', 'SoftwaresController');
 Route::apiResource('/works', 'WorksController');

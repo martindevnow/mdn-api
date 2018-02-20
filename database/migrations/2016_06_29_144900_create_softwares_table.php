@@ -19,19 +19,19 @@ class CreateSoftwaresTable extends Migration
             $table->string('description');
             
             $table->dateTime('purchased_at');
-            $table->dateTime('cancelled_at');
+            $table->dateTime('cancelled_at')->nullable();
             $table->string('purchased_from');
 
-            $table->double('amount_cad', 6, 2);
-            $table->double('usd_to_cad_rate', 9, 7);
-            $table->double('amount_usd', 6, 2);
+            $table->integer('amount_cad');
+            $table->integer('usd_to_cad_rate');
+            $table->integer('amount_usd');
             $table->enum('billing_cycle', [
                 'onetime',
                 'monthly',
                 'yearly',
             ]);
             
-            $table->text('license_information');
+            $table->text('license_information')->nullable();
             
             $table->timestamps();
             $table->softDeletes();
