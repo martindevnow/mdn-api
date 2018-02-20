@@ -24,6 +24,7 @@ Route::apiResource('/charges', 'ChargesController');
 Route::apiResource('/clients', 'ClientsController');
 Route::apiResource('/contacts', 'ContactsController');
 Route::apiResource('/contracts', 'ContractsController');
+Route::apiResource('/devices', 'DevicesController');
 Route::apiResource('/domains', 'DomainsController');
 Route::apiResource('/invoices', 'InvoicesController');
 Route::apiResource('/payments', 'PaymentsController');

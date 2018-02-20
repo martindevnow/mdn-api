@@ -19,7 +19,7 @@ class CreateDevicesTable extends Migration
             $table->string('description');
 
             $table->dateTime('purchased_at');
-            $table->double('cost', 7, 2);
+            $table->integer('cost');
 
             $table->text('notes');
 

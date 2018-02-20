@@ -21,4 +21,24 @@ class Device extends Model
         'purchased_at'  => 'date:Y-m-d'
     ];
 
+
+    /*
+     * Mutators
+     */
+
+    /**
+     * @param $value
+     * @return float|int
+     */
+    public function getCostAttribute($value) {
+        return $value / 100;
+    }
+
+    /**
+     * @param $value
+     */
+    public function setCostAttribute($value) {
+        $this->attributes['cost'] = round($value * 100);
+    }
+
 }
