@@ -17,9 +17,9 @@ class CreateContractsTable extends Migration
 
             $table->integer('project_id');
 
-            $table->double('programming_hourly_rate', 6, 2);
-            $table->double('sysadmin_hourly_rate', 6, 2);
-            $table->double('consulting_hourly_rate', 6, 2);
+            $table->integer('programming_hourly_rate');
+            $table->integer('sysadmin_hourly_rate');
+            $table->integer('consulting_hourly_rate');
 
             $table->dateTime('activated_at');
             $table->dateTime('deactivated_at')->nullable();

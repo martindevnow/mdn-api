@@ -29,6 +29,55 @@ class Contract extends Model
         'valid_until_date'  => 'date:Y-m-d',
     ];
 
+    /*
+     * Mutators
+     */
+
+    /**
+     * @param $value
+     * @return float|int
+     */
+    public function getProgrammingHourlyRateAttribute($value) {
+        return $value / 100;
+    }
+
+    /**
+     * @param $value
+     */
+    public function setProgrammingHourlyRateAttribute($value) {
+        $this->attributes['programming_hourly_rate'] = round($value * 100);
+    }
+
+    /**
+     * @param $value
+     * @return float|int
+     */
+    public function getSysadminHourlyRateAttribute($value) {
+        return $value / 100;
+    }
+
+    /**
+     * @param $value
+     */
+    public function setSysadminHourlyRateAttribute($value) {
+        $this->attributes['sysadmin_hourly_rate'] = round($value * 100);
+    }
+
+    /**
+     * @param $value
+     * @return float|int
+     */
+    public function getConsultingHourlyRateAttribute($value) {
+        return $value / 100;
+    }
+
+    /**
+     * @param $value
+     */
+    public function setConsultingHourlyRateAttribute($value) {
+        $this->attributes['consulting_hourly_rate'] = round($value * 100);
+    }
+
 
     /**
      * Relationships
