@@ -20,7 +20,7 @@ $factory->define(\Martin\Clients\ChangeRequest::class, function (Faker $faker) {
         'user_id'       => factory(\Martin\ACL\User::class)->create()->id,
         'description'   => $faker->words(20, true),
 
-        'fulfilled_at' => Carbon::now()->subDays($faker->numberBetween(100,120)),
-        'requested_at'    => Carbon::now()->subDays($faker->numberBetween(100,120)),
+        'fulfilled_at'  => Carbon::now()->subDays($faker->numberBetween(100,120))->format('Y-m-d'),
+        'requested_at'  => Carbon::now()->subDays($faker->numberBetween(100,120))->format('Y-m-d'),
     ];
 });

@@ -26,9 +26,9 @@ $factory->define(\Martin\Clients\Service::class, function (Faker $faker) {
             'monthly',
         ]),
 
-        'activated_at'      => $start_date,
+        'activated_at'      => $start_date->format('Y-m-d'),
         'deactivated_at'    => null,
-        'valid_from_date'   => $start_date,
-        'valid_until_date'  => $start_date->addYear(),
+        'valid_from_date'   => $start_date->format('Y-m-d'),
+        'valid_until_date'  => $start_date->addYear()->format('Y-m-d'),
     ];
 });

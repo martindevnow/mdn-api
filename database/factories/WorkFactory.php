@@ -20,7 +20,7 @@ $factory->define(\Martin\Projects\Work::class, function (Faker $faker) {
 
         'details'       => $faker->sentences(1, true),
         'duration'      => $faker->numberBetween(30,90),
-        'performed_at'  => Carbon::now()->subDays($faker->numberBetween(1,8)),
+        'performed_at'  => Carbon::now()->subDays($faker->numberBetween(1,8))->format('Y-m-d'),
         'billable'      => true,
         'type'          => $faker->randomElement([
             'programming',

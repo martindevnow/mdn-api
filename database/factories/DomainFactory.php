@@ -20,7 +20,7 @@ $factory->define(\Martin\Projects\Domain::class, function (Faker $faker) {
         'name'          => $faker->name . ".com",
         'registrar'     => $faker->words(1, true),
 
-        'originally_registered_at' => Carbon::now()->subDays($faker->numberBetween(100,120)),
-        'expires_at'    => Carbon::now()->subDays($faker->numberBetween(100,120)),
+        'originally_registered_at' => Carbon::now()->subDays($faker->numberBetween(100,120))->format('Y-m-d'),
+        'expires_at'    => Carbon::now()->subDays($faker->numberBetween(100,120))->format('Y-m-d'),
     ];
 });

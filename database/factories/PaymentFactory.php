@@ -25,6 +25,6 @@ $factory->define(\Martin\Billing\Payment::class, function (Faker $faker) {
         'amount_cad'    => $cad,
         'amount_usd'    => $usd,
         'usd_to_cad_rate'   => $xrate,
-        'received_at'       => Carbon::now()->subDays($faker->numberBetween(100,120)),
+        'received_at'       => Carbon::now()->subDays($faker->numberBetween(100,120))->format('Y-m-d'),
     ];
 });

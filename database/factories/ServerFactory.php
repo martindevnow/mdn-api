@@ -22,8 +22,8 @@ $factory->define(\Martin\Projects\Server::class, function (Faker $faker) {
         'username'      => $faker->userName,
         'email'         => $faker->email,
 
-        'purchased_at'  => Carbon::now()->subDays($faker->numberBetween(100,120)),
-        'expires_at'    => Carbon::now()->addDays($faker->numberBetween(100,120)),
+        'purchased_at'  => Carbon::now()->subDays($faker->numberBetween(100,120))->format('Y-m-d'),
+        'expires_at'    => Carbon::now()->addDays($faker->numberBetween(100,120))->format('Y-m-d'),
 
         'cost_monthly'  => $faker->numberBetween(100, 150),
         'currency'      => $faker->randomElement(['USD', 'CAD', 'JPY']),

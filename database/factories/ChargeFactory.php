@@ -34,7 +34,7 @@ $factory->define(\Martin\Billing\Charge::class, function (Faker $faker) {
         'quantity'          => $quantityHours,
 
         'total_cost'        => $hourlyRate * $quantityHours,
-        'billable_as_of'    => Carbon::now()->subDays($faker->numberBetween(100,120)),
+        'billable_as_of'    => Carbon::now()->subDays($faker->numberBetween(100,120))->format('Y-m-d'),
         'billed_at'         => null,
     ];
 });

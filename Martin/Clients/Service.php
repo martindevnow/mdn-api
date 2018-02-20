@@ -15,8 +15,9 @@ class Service extends Model
         'project_id',
 
         'description',
-        'cost',
+        'rate',
         'billing_frequency',
+
         'activated_at',
         'deactivated_at',
         'valid_from_date',
@@ -30,6 +31,25 @@ class Service extends Model
         'valid_until_date'  => 'date:Y-m-d',
     ];
 
+
+    /*
+     * Mutators
+     */
+
+    /**
+     * @param $value
+     * @return float|int
+     */
+    public function getRateAttribute($value) {
+        return $value / 100;
+    }
+
+    /**
+     * @param $value
+     */
+    public function setRateAttribute($value) {
+        $this->attributes['rate'] = round($value * 100);
+    }
 
     /**
      * Relationships

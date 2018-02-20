@@ -24,7 +24,7 @@ $factory->define(\Martin\Projects\Project::class, function (Faker $faker) {
         'description'   => $faker->sentences(1, true),
         'status'        => 'active',
 
-        'started_at'        => Carbon::now()->subDays($faker->numberBetween(100,120)),
+        'started_at'        => Carbon::now()->subDays($faker->numberBetween(100,120))->format('Y-m-d'),
 
         'git_repo_url'      => $faker->url,
         'production_url'    => $faker->url,

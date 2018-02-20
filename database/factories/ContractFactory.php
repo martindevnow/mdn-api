@@ -16,11 +16,11 @@ use Faker\Generator as Faker;
 
 $factory->define(\Martin\Clients\Contract::class, function (Faker $faker) {
     return [
-        'project_id'    => factory(\Martin\Projects\Project::class)->create()->id,
+        'project_id'                => factory(\Martin\Projects\Project::class)->create()->id,
         'programming_hourly_rate'   => $faker->numberBetween(40, 70),
-        'sysadmin_hourly_rate'   => $faker->numberBetween(40, 70),
-        'consulting_hourly_rate'   => $faker->numberBetween(40, 70),
-        'activated_at'  => Carbon::now()->subDays($faker->numberBetween(10,18)),
-        'valid_from_date'  => Carbon::now()->subDays($faker->numberBetween(18,29)),
+        'sysadmin_hourly_rate'      => $faker->numberBetween(40, 70),
+        'consulting_hourly_rate'    => $faker->numberBetween(40, 70),
+        'activated_at'              => Carbon::now()->subDays($faker->numberBetween(10,18))->format('Y-m-d'),
+        'valid_from_date'           => Carbon::now()->subDays($faker->numberBetween(18,29))->format('Y-m-d'),
     ];
 });
